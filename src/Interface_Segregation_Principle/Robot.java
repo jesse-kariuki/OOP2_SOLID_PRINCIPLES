@@ -17,10 +17,6 @@ public class Robot implements Worker {
     }
 }
 
-/*
 
-}
-
- */
 
 
