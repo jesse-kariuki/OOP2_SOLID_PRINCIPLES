@@ -234,7 +234,7 @@ This project demonstrates the Interface Segregation Principle using a clear exam
 
 ---
 
-##  1. Worker.java — One Large Interface (Violates ISP)
+##  1. Worker Interface — One Large Interface (Violates ISP)
 
 This interfaces forces all implementers to define methods they may not need, leading to `UnsupportedOperationException` in some classes.
 
