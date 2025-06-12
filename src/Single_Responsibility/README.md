@@ -4,7 +4,7 @@ This project demonstrates the Single Responsibility Principle by showing a shopp
 
 ---
 
-### 1. ShoppingCart.java (Violates SRP)
+## 1. ShoppingCart.java (Violates SRP)
 
 This class manages items, calculates totals, processes payments, and prints invoices — all in one class.
 
@@ -33,8 +33,10 @@ public class ShoppingCart {
 }
 ```
 
-### 2.  ImprovedShoppingCart.java (Adheres to SRP)
+## 2. ImprovedShoppingCart.java (Adheres to SRP)
+
 It has only one responsibility: managing items and their totals. Other responsibilities are handled by separate classes.
+
 ```java
 package Single_Responsibility;
 
@@ -50,10 +52,10 @@ public class ImprovedShoppingCart {
         return 100.0;
     }
 }
-
 ```
 
-### 3. PaymentProcessor.java (Handles Payment Processing)
+## 3. PaymentProcessor.java (Handles Payment Processing)
+
 This class is responsible for processing payments.
 
 ```java
@@ -64,11 +66,12 @@ public class PaymentProcessor {
         System.out.println("Processing payment of $ " + amount+"...");
     }
 }
-
 ```
 
-### 4. InvoicePrinter.java
+## 4. InvoicePrinter.java
+
 This class is responsible for printing invoices.
+
 ```java
 package Single_Responsibility;
 
@@ -77,11 +80,12 @@ public class InvoicePrinter {
         System.out.println("Printing invoice...");
     }
 }
-
 ```
 
-### 5. Main.java
+## 5. Main.java
+
 This is the entry point which demonstrates the use of the SRP-compliant classes.
+
 ```java
 package Single_Responsibility;
 
@@ -100,11 +104,11 @@ public class Main {
 
         InvoicePrinter invoicePrinter = new InvoicePrinter();
         invoicePrinter.printInvoice();
-
     }
 }
-
 ```
+
+---
 
 # Open/Closed Principle (OCP) Example in Java
 
@@ -112,7 +116,7 @@ This project demonstrates the **Open/Closed Principle** by implementing a notifi
 
 ---
 
-### 1. NotificationService.java (Violates OCP)
+## 1. NotificationService.java (Violates OCP)
 
 This class handles sending notifications but requires modification every time a new notification type is added. This violates the Open/Closed Principle, which states that classes should be **open for extension but closed for modification**.
 
@@ -130,8 +134,9 @@ public class NotificationService {
         // Adding SMS or other types requires modifying this class!
     }
 }
+```
 
-### 2. Notification.java (Abstract Base Class)
+## 2. Notification.java (Abstract Base Class)
 
 To adhere to OCP, we introduce an abstract class for notifications. New types can now be added by extending this class — without modifying existing code.
 
@@ -143,11 +148,13 @@ public abstract class Notification {
     public abstract void send(String message);
 }
 ```
-### 3. Concrete Implementations (Extending Notification)
+
+## 3. Concrete Implementations (Extending Notification)
 
 Each new notification type (Email, Push, SMS) extends the `Notification` class and provides its own implementation.
 
-#### EmailNotification.java
+### EmailNotification.java
+
 ```java
 package Open_Closed_Principle;
 
@@ -159,7 +166,8 @@ public class EmailNotification extends Notification {
 }
 ```
 
-#### PushNotification.java
+### PushNotification.java
+
 ```java
 package Open_Closed_Principle;
 
@@ -171,7 +179,8 @@ public class PushNotification extends Notification {
 }
 ```
 
-#### SMSNotification.java
+### SMSNotification.java
+
 ```java
 package Open_Closed_Principle;
 
@@ -183,7 +192,7 @@ public class SMSNotification extends Notification {
 }
 ```
 
-### 4. NotificationService.java (Refactored — Adheres to OCP)
+## 4. NotificationService.java (Refactored — Adheres to OCP)
 
 The `NotificationService` is now designed to work with the `Notification` abstraction. It no longer needs to be modified when new types are added.
 
@@ -197,7 +206,8 @@ public class NotificationService {
     }
 }
 ```
-### 5. Main.java
+
+## 5. Main.java
 
 This is the entry point that demonstrates sending different types of notifications using the OCP-compliant structure.
 
